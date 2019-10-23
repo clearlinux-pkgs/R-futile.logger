@@ -4,19 +4,19 @@
 #
 Name     : R-futile.logger
 Version  : 1.4.3
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/futile.logger_1.4.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/futile.logger_1.4.3.tar.gz
 Summary  : A Logging Utility for R
 Group    : Development/Tools
 License  : LGPL-3.0
-Requires: R-formatR
 Requires: R-futile.options
 Requires: R-lambda.r
 BuildRequires : R-formatR
 BuildRequires : R-futile.options
 BuildRequires : R-lambda.r
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 [![Build Status](https://travis-ci.org/zatonovo/futile.logger.png)](https://travis-ci.org/zatonovo/futile.logger)
@@ -28,13 +28,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552808246
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571834678
 
 %install
-export SOURCE_DATE_EPOCH=1552808246
+export SOURCE_DATE_EPOCH=1571834678
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -63,12 +63,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  futile.logger || :
+R CMD check --no-manual --no-examples --no-codoc futile.logger || :
 
 
 %files
