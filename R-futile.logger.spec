@@ -4,7 +4,7 @@
 #
 Name     : R-futile.logger
 Version  : 1.4.3
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/futile.logger_1.4.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/futile.logger_1.4.3.tar.gz
 Summary  : A Logging Utility for R
@@ -12,32 +12,32 @@ Group    : Development/Tools
 License  : LGPL-3.0
 Requires: R-futile.options
 Requires: R-lambda.r
-BuildRequires : R-formatR
 BuildRequires : R-futile.options
 BuildRequires : R-lambda.r
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-[![Build Status](https://travis-ci.org/zatonovo/futile.logger.png)](https://travis-ci.org/zatonovo/futile.logger)
+log4j, futile.logger takes advantage of R idioms to make logging a
+    convenient and easy to use replacement for cat and print statements.
 
 %prep
 %setup -q -c -n futile.logger
+cd %{_builddir}/futile.logger
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571834678
+export SOURCE_DATE_EPOCH=1589749359
 
 %install
-export SOURCE_DATE_EPOCH=1571834678
+export SOURCE_DATE_EPOCH=1589749359
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
