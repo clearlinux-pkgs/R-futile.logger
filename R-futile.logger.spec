@@ -4,7 +4,7 @@
 #
 Name     : R-futile.logger
 Version  : 1.4.3
-Release  : 45
+Release  : 46
 URL      : https://cran.r-project.org/src/contrib/futile.logger_1.4.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/futile.logger_1.4.3.tar.gz
 Summary  : A Logging Utility for R
